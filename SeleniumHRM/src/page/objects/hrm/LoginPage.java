@@ -33,8 +33,10 @@ public class LoginPage extends BaseDriver {
 
 	public void userLogin(String userName, String userPassword) {
 
+		this.userName.clear();
 		this.userName.sendKeys(userName);
 
+		this.userPassword.clear();
 		this.userPassword.sendKeys(userPassword);
 
 		loginButton.click();

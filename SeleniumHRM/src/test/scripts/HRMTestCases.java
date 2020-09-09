@@ -5,7 +5,9 @@ import org.testng.annotations.Test;
 
 import base.driver.test.BaseTest;
 import page.objects.hrm.LoginPage;
+import page.objects.hrm.PIMPage;
 import utilities.Constants;
+import utilities.UserNameGenerator;
 
 public class HRMTestCases extends BaseTest {
 
@@ -39,6 +41,23 @@ public class HRMTestCases extends BaseTest {
 		System.out.println("Home Page title is: " + title);
 
 		Assert.assertEquals(Constants.Login_Page_Title, title);
+
+	}
+
+	@Test(priority = 3, enabled = false)
+	public void addEmployee() throws InterruptedException {
+
+		LoginPage userLogin = new LoginPage(driver);
+		userLogin.userLogin(Constants.USER_NAME, Constants.USER_PASSWORD);
+
+		PIMPage addEmp = new PIMPage(driver);
+		addEmp.clickOnPIMLink();
+		addEmp.clickOnAddEmployeeButton();
+
+		UserNameGenerator empName = new UserNameGenerator();
+
+		addEmp.fillEmployeeDetails(empName.firstName, empName.lastName);
+		addEmp.verifyEmployeeCreation(empName.employeeName);
 
 	}
 }
