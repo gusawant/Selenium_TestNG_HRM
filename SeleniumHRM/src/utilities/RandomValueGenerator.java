@@ -1,6 +1,6 @@
 package utilities;
 
-public class UserNameGenerator {
+public class RandomValueGenerator {
 
 	public Double d = (Math.random() + 1) * 10000;
 
@@ -8,4 +8,6 @@ public class UserNameGenerator {
 	public String lastName = "lName_" + Math.round(d);
 
 	public String employeeName = firstName + " " + lastName;
+	
+	public String companyName = "Test Company_" + Math.round(d);
 }

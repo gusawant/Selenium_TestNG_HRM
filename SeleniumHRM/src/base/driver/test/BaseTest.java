@@ -4,8 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import utilities.Constants;
 
@@ -13,7 +13,7 @@ public abstract class BaseTest {
 	
 	public WebDriver driver;
 	
-	@BeforeTest
+	@BeforeMethod
 	public void startBrowser() {
 		
 		System.setProperty("webdriver.chrome.driver", Constants.Driver_Path);
@@ -28,7 +28,7 @@ public abstract class BaseTest {
 	
 	}
 	
-	@AfterTest
+	@AfterMethod
 	public void closeBrowser() {
 		
 		driver.close();

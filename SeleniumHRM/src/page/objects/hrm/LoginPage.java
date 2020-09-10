@@ -3,8 +3,10 @@ package page.objects.hrm;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import base.driver.test.BaseDriver;
+import utilities.Constants;
 
 public class LoginPage extends BaseDriver {
 
@@ -24,9 +26,19 @@ public class LoginPage extends BaseDriver {
 	@FindBy(id = "btnLogin")
 	WebElement loginButton;
 
+	public void verifyPageTitle() {
+
+		String title = driver.getTitle();
+
+		System.out.println("Page title is: " + title);
+
+		Assert.assertEquals(Constants.Login_Page_Title, title);
+
+	}
+
 	public void getHeaderImageURL() {
 
-		String headerImageURL = headerImage.getText();
+		String headerImageURL = headerImage.getAttribute("src");
 
 		System.out.println(headerImageURL);
 	}
